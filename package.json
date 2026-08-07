@@ -1,25 +1,51 @@
 {
   "name": "anything-to-git",
-  "version": "0.1.0",
-  "private": true,
-  "description": "Turn any external mutable system into a bidirectional Git workspace. Universal core + pluggable adapters.",
+  "version": "0.2.0",
+  "description": "Deterministic, conflict-safe website-to-Git synchronization with browser-neutral semantic adapters.",
   "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
   "bin": {
     "a2g": "bin/a2g.js"
   },
   "scripts": {
-    "test": "node tests/run.js"
+    "test": "node --test tests/*.test.js",
+    "test:coverage": "node --test --experimental-test-coverage tests/*.test.js",
+    "smoke": "node bin/a2g.js --version && node bin/a2g.js adapters"
   },
   "engines": {
     "node": ">=18"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megamen32/Anything-to-Git.git"
+  },
+  "keywords": [
+    "git",
+    "json",
+    "sync",
+    "website",
+    "ai-agent",
+    "three-way-merge"
+  ],
   "license": "MIT",
   "files": [
     "src",
     "bin",
     "adapters",
     "skills",
+    "schemas",
+    "docs",
+    "examples",
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "homepage": "https://github.com/megamen32/Anything-to-Git#readme",
+  "bugs": {
+    "url": "https://github.com/megamen32/Anything-to-Git/issues"
+  }
 }

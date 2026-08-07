@@ -1,7 +1,11 @@
 node_modules/
-package-lock.json
-.DS_Store
+coverage/
+*.tgz
 *.log
-.cache/
-.workdir/
-fixtures/private/
+.DS_Store
+
+# Per-project captures, reports, pending plans, and credentials must not enter Git.
+.a2g/
+
+# Local canonical workspaces created while exercising bundled examples.
+/site/

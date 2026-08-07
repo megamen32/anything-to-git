@@ -1,0 +1,198 @@
+{
+  "id": "demo-grant-portal",
+  "merge_policies": {},
+  "pages": [
+    {
+      "blocks": [
+        {
+          "fields": [
+            {
+              "canonical": {
+                "file": "application/general.json",
+                "pointer": "/title"
+              },
+              "constraints": {
+                "max_length": 500,
+                "min_length": 5
+              },
+              "id": "title",
+              "label": "Project title",
+              "normalize": {
+                "normalize_newlines": true,
+                "trim": true
+              },
+              "read": {
+                "instruction": "Read the full text from the Project title control"
+              },
+              "required": true,
+              "type": "string",
+              "write": {
+                "control": "textarea",
+                "enabled": true,
+                "instruction": "Replace the entire title and keep the exact punctuation",
+                "save_group": "general"
+              }
+            },
+            {
+              "canonical": {
+                "file": "application/general.json",
+                "pointer": "/competition"
+              },
+              "id": "competition",
+              "label": "Competition",
+              "read": {
+                "instruction": "Read the selected competition name"
+              },
+              "required": true,
+              "type": "string",
+              "write": {
+                "enabled": false
+              }
+            }
+          ],
+          "id": "identity",
+          "title": "Application identity"
+        }
+      ],
+      "id": "general",
+      "navigation": {
+        "recognition": "The page heading is 'General information' and the application number is 42",
+        "url_hint": "/application/42/general"
+      },
+      "save": {
+        "instruction": "Save the page using its visible save action after all operations in this save group",
+        "success_evidence": "Describe the stable visible evidence that the save completed without validation errors"
+      },
+      "title": "General information"
+    },
+    {
+      "blocks": [
+        {
+          "fields": [
+            {
+              "canonical": {
+                "file": "sections/summary.json",
+                "pointer": "/text"
+              },
+              "constraints": {
+                "max_length": 4000
+              },
+              "id": "text",
+              "label": "Project summary",
+              "normalize": {
+                "normalize_newlines": true
+              },
+              "read": {
+                "instruction": "Read the complete summary, preserving paragraphs"
+              },
+              "required": true,
+              "type": "string",
+              "write": {
+                "control": "rich-text-or-textarea",
+                "enabled": true,
+                "instruction": "Replace the entire section; preserve paragraph breaks",
+                "save_group": "description"
+              }
+            }
+          ],
+          "id": "summary",
+          "title": "Summary"
+        },
+        {
+          "fields": [
+            {
+              "canonical": {
+                "file": "sections/relevance.json",
+                "pointer": "/text"
+              },
+              "constraints": {
+                "max_length": 5000
+              },
+              "id": "text",
+              "label": "Project relevance",
+              "normalize": {
+                "normalize_newlines": true
+              },
+              "read": {
+                "instruction": "Read the complete relevance section, preserving paragraphs"
+              },
+              "required": true,
+              "type": "string",
+              "write": {
+                "control": "rich-text-or-textarea",
+                "enabled": true,
+                "instruction": "Replace the entire section; preserve paragraph breaks",
+                "save_group": "description"
+              }
+            }
+          ],
+          "id": "relevance",
+          "title": "Relevance"
+        }
+      ],
+      "id": "description",
+      "navigation": {
+        "recognition": "The page contains Summary and Relevance sections",
+        "url_hint": "/application/42/description"
+      },
+      "save": {
+        "instruction": "Save the page using its visible save action after all operations in this save group",
+        "success_evidence": "Describe the stable visible evidence that the save completed without validation errors"
+      },
+      "title": "Project description"
+    },
+    {
+      "blocks": [
+        {
+          "fields": [
+            {
+              "canonical": {
+                "file": "budget/summary.json",
+                "pointer": "/total"
+              },
+              "constraints": {
+                "enum": [
+                  1000000,
+                  1200000,
+                  1500000
+                ]
+              },
+              "id": "total",
+              "label": "Total requested amount",
+              "read": {
+                "instruction": "Read the integer amount without thousands separators"
+              },
+              "required": true,
+              "type": "integer",
+              "write": {
+                "control": "number",
+                "enabled": true,
+                "instruction": "Replace the numeric value",
+                "save_group": "budget"
+              }
+            }
+          ],
+          "id": "totals",
+          "title": "Budget totals"
+        }
+      ],
+      "id": "budget",
+      "navigation": {
+        "recognition": "The page heading is Budget and a total amount is visible",
+        "url_hint": "/application/42/budget"
+      },
+      "save": {
+        "instruction": "Save the page using its visible save action after all operations in this save group",
+        "success_evidence": "Describe the stable visible evidence that the save completed without validation errors"
+      },
+      "title": "Budget"
+    }
+  ],
+  "site": {
+    "name": "Demonstration grant portal",
+    "notes": "This is an offline example. URLs and labels are illustrative.",
+    "scope": "One grant application",
+    "start_url": "https://grant.example.invalid/application/42"
+  },
+  "version": 1
+}

@@ -1,0 +1,15 @@
+{
+  "adapter_id": "replace-me",
+  "adapter_version": 1,
+  "captured_at": "2026-08-08T12:00:00+03:00",
+  "revision": "revision-example",
+  "values": {
+    "general.main.title": {
+      "present": true,
+      "value": "Example title"
+    }
+  },
+  "metadata": {
+    "source_url": "https://example.invalid/general"
+  }
+}

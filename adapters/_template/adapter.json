@@ -1,0 +1,67 @@
+{
+  "id": "replace-me",
+  "merge_policies": {},
+  "pages": [
+    {
+      "blocks": [
+        {
+          "fields": [
+            {
+              "canonical": {
+                "file": "application/general.json",
+                "pointer": "/title"
+              },
+              "capture_key": "general.main.title",
+              "constraints": {
+                "max_length": 500,
+                "min_length": 1
+              },
+              "id": "title",
+              "label": "Visible field label",
+              "normalize": {
+                "normalize_newlines": true
+              },
+              "read": {
+                "instruction": "Read the complete value exactly as shown in the editable control",
+                "locator_hints": [
+                  "visible label",
+                  "nearby section heading"
+                ]
+              },
+              "required": true,
+              "type": "string",
+              "write": {
+                "control": "text",
+                "enabled": true,
+                "instruction": "Replace the entire editable value; do not append",
+                "save_group": "general"
+              }
+            }
+          ],
+          "id": "main",
+          "navigation": {
+            "recognition": "Describe the visible section heading or surrounding controls"
+          },
+          "title": "Main fields"
+        }
+      ],
+      "id": "general",
+      "navigation": {
+        "recognition": "Describe stable visible landmarks proving that the correct page is open",
+        "url_hint": "/general"
+      },
+      "save": {
+        "instruction": "Save the page using its visible save action after all operations in this save group",
+        "success_evidence": "Describe the stable visible evidence that the save completed without validation errors"
+      },
+      "title": "General information"
+    }
+  ],
+  "site": {
+    "name": "Replace with the website name",
+    "notes": "Authentication and browser transport are intentionally outside the adapter contract.",
+    "scope": "One concrete editable object on the website",
+    "start_url": "https://example.invalid/"
+  },
+  "version": 1
+}

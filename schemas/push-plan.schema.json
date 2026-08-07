@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anything-to-git.local/schemas/push-plan.schema.json",
+  "title": "Anything to Git semantic push plan",
+  "type": "object",
+  "required": [
+    "kind",
+    "plan_id",
+    "adapter_id",
+    "adapter_version",
+    "expected_remote_revision",
+    "current_remote_hash",
+    "desired_hash",
+    "local_commit",
+    "remote_commit",
+    "remote_captured_at",
+    "remote_ingested_at",
+    "verification_challenge",
+    "operations",
+    "execution_rules",
+    "warnings",
+    "created_at"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "plan_id": {
+      "type": "string",
+      "pattern": "^plan-[0-9a-f]{12}$"
+    },
+    "adapter_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+    },
+    "adapter_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "site": {
+      "type": "object"
+    },
+    "expected_remote_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "current_remote_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "desired_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "local_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40,64}$"
+    },
+    "remote_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40,64}$"
+    },
+    "remote_captured_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "remote_ingested_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "operation_id",
+          "action",
+          "file",
+          "pointer",
+          "page_id",
+          "block_id",
+          "field_id",
+          "capture_key",
+          "expected_present",
+          "value_present",
+          "label",
+          "description",
+          "type",
+          "required",
+          "constraints",
+          "expected_before",
+          "expected_before_site",
+          "value",
+          "write_value",
+          "navigation",
+          "observation",
+          "interaction",
+          "comparison_normalization",
+          "save",
+          "save_group"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "operation_id": {
+            "type": "string"
+          },
+          "action": {
+            "enum": [
+              "set",
+              "clear"
+            ]
+          },
+          "file": {
+            "type": "string",
+            "pattern": "\\.json$"
+          },
+          "pointer": {
+            "type": "string"
+          },
+          "page_id": {
+            "type": "string"
+          },
+          "block_id": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "capture_key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "enum": [
+              "string",
+              "integer",
+              "number",
+              "boolean",
+              "array",
+              "object",
+              "null"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "constraints": {
+            "type": "object"
+          },
+          "expected_present": {
+            "type": "boolean"
+          },
+          "expected_before": true,
+          "expected_before_site": true,
+          "value_present": {
+            "type": "boolean"
+          },
+          "value": true,
+          "write_value": true,
+          "navigation": {
+            "type": "object"
+          },
+          "observation": {
+            "type": "object"
+          },
+          "interaction": {
+            "type": "object"
+          },
+          "comparison_normalization": {
+            "type": "object"
+          },
+          "save": {
+            "type": "object"
+          },
+          "save_group": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "execution_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "kind": {
+      "const": "anything-to-git.push-plan"
+    },
+    "verification_challenge": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{48}$"
+    }
+  }
+}

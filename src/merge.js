@@ -1,142 +1,231 @@
 'use strict';
 
-const { isObject, get, set, remove, deepEqual, listPaths } = require('./tree');
+const {
+  MISSING,
+  canonicalStringify,
+  deepEqual,
+  isPlainObject,
+  joinPointer,
+  createJsonObject,
+  setOwn,
+} = require('./json');
 
-// Three-way merge at JSON-path level.
-// base  = last agreed state (site == local at the last successful sync)
-// local = current local (Git) state
-// remote = freshly fetched state of the external system
-//
-// Returns { merged, conflicts, classifications }
-//   merged        : canonical tree with auto-resolved changes
-//   conflicts     : [{ path, base, local, remote, reason }]
-//   classifications: { [path]: 'local-only' | 'remote-only' | 'both' | 'agree' | 'delete-vs-edit' }
+function policyFor(file, pointer, policies = {}) {
+  // Policies describe one semantic value at one canonical JSON pointer. They do
+  // not implicitly leak into descendants: a by_id policy for a collection must
+  // not turn unrelated arrays inside each entity into by_id collections too.
+  const target = `${file}#${pointer}`;
+  const selected = Object.prototype.hasOwnProperty.call(policies || {}, target)
+    ? policies[target]
+    : null;
+  if (selected == null) return { kind: 'atomic', idKey: 'id', explicit: false };
+  if (typeof selected === 'string') return { kind: selected, idKey: 'id', explicit: true };
+  return { kind: selected.kind || 'atomic', idKey: selected.id_key || selected.idKey || 'id', explicit: true };
+}
 
-function threeWay(base, local, remote) {
-  const merged = JSON.parse(JSON.stringify(base || {}));
+function same(left, right) {
+  return left === MISSING || right === MISSING ? left === right : deepEqual(left, right);
+}
+
+function marker(value) {
+  return canonicalStringify(value, { pretty: false, trailingNewline: false });
+}
+
+function mergeSet(base, local, remote) {
+  const b = new Map(base.map((item) => [marker(item), item]));
+  const l = new Map(local.map((item) => [marker(item), item]));
+  const r = new Map(remote.map((item) => [marker(item), item]));
+  const mergedKeys = new Set();
+  const keys = new Set([...b.keys(), ...l.keys(), ...r.keys()]);
+  for (const key of keys) {
+    const inBase = b.has(key);
+    const inLocal = l.has(key);
+    const inRemote = r.has(key);
+    let present;
+    if (inLocal === inRemote) present = inLocal;
+    else if (inLocal === inBase) present = inRemote;
+    else present = inLocal; // inRemote === inBase; local is the one-sided change
+    if (present) mergedKeys.add(key);
+  }
+  const ordered = [];
+  const seen = new Set();
+  for (const source of [base, local, remote]) {
+    for (const item of source) {
+      const key = marker(item);
+      if (mergedKeys.has(key) && !seen.has(key)) {
+        seen.add(key);
+        ordered.push(item);
+      }
+    }
+  }
+  return ordered;
+}
+
+function hasUniqueSetMembers(items) {
+  const seen = new Set();
+  for (const item of items) {
+    const key = marker(item);
+    if (seen.has(key)) return false;
+    seen.add(key);
+  }
+  return true;
+}
+
+function listById(items, idKey) {
+  const mapping = new Map();
+  const order = [];
+  for (const item of items) {
+    if (!isPlainObject(item) || !Object.prototype.hasOwnProperty.call(item, idKey)) return null;
+    const rawKey = item[idKey];
+    if (!['string', 'number'].includes(typeof rawKey) || (typeof rawKey === 'number' && !Number.isFinite(rawKey))) return null;
+    const key = `${typeof rawKey}:${String(rawKey)}`;
+    if (mapping.has(key)) return null;
+    mapping.set(key, item);
+    order.push(key);
+  }
+  return { mapping, order };
+}
+
+function mapGetOrMissing(map, key) {
+  return map.has(key) ? map.get(key) : MISSING;
+}
+
+function mergeValue(base, local, remote, context) {
+  const { file, pointer, policies, conflicts } = context;
+  if (same(local, remote)) return local;
+  if (same(local, base)) return remote;
+  if (same(remote, base)) return local;
+
+  const policy = policyFor(file, pointer, policies);
+
+  // Objects are recursively mergeable by default, but an adapter can mark a
+  // semantic object as explicitly atomic when partial combination would be
+  // unsafe (for example, a coupled address or credential-like structure).
+  if (isPlainObject(base) && isPlainObject(local) && isPlainObject(remote) && !(policy.explicit && policy.kind === 'atomic')) {
+    const merged = createJsonObject();
+    const keys = [...new Set([...Object.keys(base), ...Object.keys(local), ...Object.keys(remote)])].sort();
+    for (const key of keys) {
+      const value = mergeValue(
+        Object.prototype.hasOwnProperty.call(base, key) ? base[key] : MISSING,
+        Object.prototype.hasOwnProperty.call(local, key) ? local[key] : MISSING,
+        Object.prototype.hasOwnProperty.call(remote, key) ? remote[key] : MISSING,
+        { ...context, pointer: joinPointer(pointer, key) },
+      );
+      if (value !== MISSING) setOwn(merged, key, value);
+    }
+    return merged;
+  }
+
+  if (policy.kind === 'set' && Array.isArray(base) && Array.isArray(local) && Array.isArray(remote)) {
+    if ([base, local, remote].every(hasUniqueSetMembers)) return mergeSet(base, local, remote);
+    conflicts.push({
+      file,
+      pointer,
+      base,
+      local,
+      remote,
+      reason: 'set merge requires unique members on every side',
+      policy: policy.kind,
+    });
+    return local;
+  }
+
+  if (policy.kind === 'by_id' && Array.isArray(base) && Array.isArray(local) && Array.isArray(remote)) {
+    const converted = [base, local, remote].map((items) => listById(items, policy.idKey));
+    if (converted.every(Boolean)) {
+      const conflictStart = conflicts.length;
+      const [b, l, r] = converted;
+      const mergedMap = new Map();
+      const ids = [...new Set([...b.mapping.keys(), ...l.mapping.keys(), ...r.mapping.keys()])].sort();
+      for (const id of ids) {
+        const value = mergeValue(
+          mapGetOrMissing(b.mapping, id),
+          mapGetOrMissing(l.mapping, id),
+          mapGetOrMissing(r.mapping, id),
+          { ...context, pointer: joinPointer(pointer, id) },
+        );
+        if (value !== MISSING) mergedMap.set(id, value);
+      }
+
+      const common = new Set([...b.mapping.keys()].filter((id) => l.mapping.has(id) && r.mapping.has(id) && mergedMap.has(id)));
+      const commonOrder = (order) => order.filter((id) => common.has(id));
+      const baseCommon = commonOrder(b.order);
+      const localCommon = commonOrder(l.order);
+      const remoteCommon = commonOrder(r.order);
+      const localReordered = !deepEqual(localCommon, baseCommon);
+      const remoteReordered = !deepEqual(remoteCommon, baseCommon);
+      let preferredOrder;
+      if (localReordered && remoteReordered && !deepEqual(localCommon, remoteCommon)) {
+        conflicts.push({
+          file,
+          pointer,
+          base,
+          local,
+          remote,
+          reason: 'both sides reordered the same collection differently',
+          policy: policy.kind,
+        });
+        preferredOrder = l.order;
+      } else if (localReordered) preferredOrder = l.order;
+      else if (remoteReordered) preferredOrder = r.order;
+      else preferredOrder = b.order;
+
+      const order = [];
+      for (const source of [preferredOrder, l.order, r.order, b.order]) {
+        for (const id of source) {
+          if (mergedMap.has(id) && !order.includes(id)) order.push(id);
+        }
+      }
+      const candidate = order.map((id) => mergedMap.get(id));
+
+      // Recursive conflicts inside a stable-ID array use semantic ID segments,
+      // not physical JSON array indices. Such paths are excellent diagnostics
+      // but cannot be applied safely by the generic JSON-pointer resolver,
+      // especially for delete-versus-edit where the candidate item may be
+      // absent. Collapse them into one executable collection-level conflict.
+      // The report still retains the merged candidate, so a user may approve a
+      // fully combined collection with an explicit `set` resolution.
+      if (conflicts.length > conflictStart) {
+        const nested = conflicts.slice(conflictStart);
+        const reason = nested.length === 1 && nested[0].pointer === pointer
+          ? nested[0].reason
+          : 'conflicting edits or order within a stable-ID collection';
+        conflicts.splice(conflictStart);
+        conflicts.push({
+          file,
+          pointer,
+          base,
+          local,
+          remote,
+          reason,
+          policy: policy.kind,
+        });
+      }
+      return candidate;
+    }
+  }
+
+  let reason = 'both sides changed the same value differently';
+  if (base === MISSING) reason = 'both sides added different values';
+  else if (local === MISSING || remote === MISSING) reason = 'delete-versus-edit conflict';
+  conflicts.push({ file, pointer, base, local, remote, reason, policy: policy.kind });
+  return local;
+}
+
+function mergeTrees(base = {}, local = {}, remote = {}, { policies = {} } = {}) {
   const conflicts = [];
-  const classifications = {};
-
-  const paths = new Set();
-  for (const p of listPaths(base || {})) paths.add(p);
-  for (const p of listPaths(local || {})) paths.add(p);
-  for (const p of listPaths(remote || {})) paths.add(p);
-
-  for (const path of [...paths].sort()) {
-    const b = get(base || {}, path);
-    const l = get(local || {}, path);
-    const r = get(remote || {}, path);
-
-    const bUndef = b === undefined;
-    const lUndef = l === undefined;
-    const rUndef = r === undefined;
-
-    // All three absent — nothing to do.
-    if (bUndef && lUndef && rUndef) {
-      classifications[path] = 'absent';
-      continue;
-    }
-
-    // Pure add cases (base had no value).
-    if (bUndef) {
-      if (lUndef) {
-        set(merged, path, r);
-        classifications[path] = 'remote-only';
-      } else if (rUndef) {
-        set(merged, path, l);
-        classifications[path] = 'local-only';
-      } else if (deepEqual(l, r)) {
-        set(merged, path, l);
-        classifications[path] = 'agree';
-      } else {
-        // Both added different values — real conflict.
-        classifications[path] = 'conflict';
-        conflicts.push({ path, base: b, local: l, remote: r, reason: 'both-added' });
-        set(merged, path, l);
-      }
-      continue;
-    }
-
-    // Base had a value, one or both sides removed it.
-    if (lUndef || rUndef) {
-      if (lUndef && rUndef) {
-        // Both deleted — agree.
-        classifications[path] = 'agree';
-        // ensure removal in merged
-        const { remove } = require('./tree');
-        remove(merged, path);
-        continue;
-      }
-      // Exactly one side removed.
-      const survivor = lUndef ? r : l;
-      const survivorName = lUndef ? 'remote' : 'local';
-      if (deepEqual(survivor, b)) {
-        // The side that kept the field didn't change it; the other side deleted.
-        // Take the deletion.
-        const { remove } = require('./tree');
-        remove(merged, path);
-        classifications[path] = survivorName + '-only'; // 'remote-only' or 'local-only'
-      } else {
-        // The side that kept the field changed it; the other side deleted.
-        // delete-vs-edit: real conflict, both interpretations are valid.
-        classifications[path] = 'delete-vs-edit';
-        conflicts.push({ path, base: b, local: l, remote: r, reason: 'delete-vs-edit' });
-        // Don't auto-resolve: keep base in merged so the conflict is visible.
-      }
-      continue;
-    }
-
-    // All three present.
-    const lEqB = deepEqual(l, b);
-    const rEqB = deepEqual(r, b);
-    const lEqR = deepEqual(l, r);
-
-    if (lEqB && rEqB) {
-      classifications[path] = 'agree';
-      continue;
-    }
-    if (lEqB && !rEqB) {
-      set(merged, path, r);
-      classifications[path] = 'remote-only';
-      continue;
-    }
-    if (rEqB && !lEqB) {
-      set(merged, path, l);
-      classifications[path] = 'local-only';
-      continue;
-    }
-    if (lEqR) {
-      set(merged, path, l);
-      classifications[path] = 'agree';
-      continue;
-    }
-
-    // Both changed differently — real conflict.
-    classifications[path] = 'conflict';
-    conflicts.push({ path, base: b, local: l, remote: r, reason: 'value-diverged' });
-    // Default behaviour: keep local, flag.
-    set(merged, path, l);
+  const merged = createJsonObject();
+  const files = [...new Set([...Object.keys(base), ...Object.keys(local), ...Object.keys(remote)])].sort();
+  for (const file of files) {
+    const value = mergeValue(
+      Object.prototype.hasOwnProperty.call(base, file) ? base[file] : MISSING,
+      Object.prototype.hasOwnProperty.call(local, file) ? local[file] : MISSING,
+      Object.prototype.hasOwnProperty.call(remote, file) ? remote[file] : MISSING,
+      { file, pointer: '', policies, conflicts },
+    );
+    if (value !== MISSING) setOwn(merged, file, value);
   }
-
-  return { merged, conflicts, classifications };
+  return { merged, conflicts, clean: conflicts.length === 0 };
 }
 
-// Recursive object merge (used by adapters that explicitly opt into a
-// per-field "join" merge strategy, e.g. for sets of tags or notes).
-function deepJoinObjects(local, remote) {
-  if (Array.isArray(local) && Array.isArray(remote)) {
-    return Array.from(new Set([...local, ...remote]));
-  }
-  if (isObject(local) && isObject(remote)) {
-    const out = { ...local };
-    for (const k of Object.keys(remote)) {
-      if (k in out) out[k] = deepJoinObjects(out[k], remote[k]);
-      else out[k] = remote[k];
-    }
-    return out;
-  }
-  // Scalars: remote wins on tie-break by presence.
-  return remote !== undefined ? remote : local;
-}
-
-module.exports = { threeWay, deepJoinObjects };
+module.exports = { policyFor, mergeSet, mergeTrees };

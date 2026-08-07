@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anything-to-git.local/schemas/capture.schema.json",
+  "title": "Anything to Git complete site capture",
+  "type": "object",
+  "required": [
+    "adapter_id",
+    "adapter_version",
+    "captured_at",
+    "revision",
+    "values",
+    "metadata"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "adapter_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+    },
+    "adapter_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "revision": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "values": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "present"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "present": {
+            "type": "boolean"
+          },
+          "value": true
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "present": {
+                  "const": true
+                }
+              },
+              "required": [
+                "present"
+              ]
+            },
+            "then": {
+              "required": [
+                "value"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "value"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "plan_id",
+        "challenge"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "type": "string",
+          "pattern": "^plan-[0-9a-f]{12}$"
+        },
+        "challenge": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{48}$"
+        }
+      }
+    }
+  }
+}

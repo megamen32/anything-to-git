@@ -1,0 +1,31 @@
+{
+  "adapter_id": "demo-grant-portal",
+  "adapter_version": 1,
+  "captured_at": "2026-08-08T12:00:00+03:00",
+  "revision": "grant-rev-001",
+  "values": {
+    "general.identity.title": {
+      "present": true,
+      "value": "Study of iron complexes"
+    },
+    "general.identity.competition": {
+      "present": true,
+      "value": "Fundamental research 2026"
+    },
+    "description.summary.text": {
+      "present": true,
+      "value": "Base summary."
+    },
+    "description.relevance.text": {
+      "present": true,
+      "value": "Base relevance."
+    },
+    "budget.totals.total": {
+      "present": true,
+      "value": 1000000
+    }
+  },
+  "metadata": {
+    "source_url": "https://grant.example.invalid/application/42"
+  }
+}
