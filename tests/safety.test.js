@@ -25,7 +25,11 @@ test('initializing inside a parent Git repository creates an independent child r
   Project.initialize(child, { adapterPath: DEMO, remoteName: 'site', stateDir: 'site' });
   assert.equal(fs.existsSync(path.join(child, '.git')), true);
   const top = spawnSync('git', ['rev-parse', '--show-toplevel'], { cwd: child, encoding: 'utf8' });
-  assert.equal(path.resolve(top.stdout.trim()), path.resolve(child));
+  // Use realpathSync to canonicalize both sides — on macOS /var is a symlink
+  // to /private/var, and os.tmpdir() returns the un-prefixed form while
+  // git --show-toplevel returns the realpath, so plain path.resolve is
+  // not enough to compare them.
+  assert.equal(fs.realpathSync(top.stdout.trim()), fs.realpathSync(child));
 });
 
 test('tampered metadata pointers cannot escape their private directories', (t) => {
