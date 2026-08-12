@@ -40,22 +40,21 @@ Hard rules:
 - Do not ask the user about deterministic non-overlapping changes. Merge those
   automatically and report them.
 
-## Publication Proof
+## Content Object Proof
 
-When the synchronized object is an article, post, or other publication, use
-the adapter's renderer and capability profile as part of the plan review.
-Track the publication ladder explicitly:
+For any synchronized content object, use the adapter's renderer and capability
+profile as part of the plan review. Track the operation ladder explicitly:
 
 ```text
 request_sent
--> external_id_received
+-> remote_identity_or_revision_observed
 -> save_confirmed
--> public_readback_verified
+-> readback_verified
 ```
 
-Only the last state is a successful publication. An API response, editor toast,
-or closed modal is not enough. The read-back report must include its source and
-visibility, such as public DOM, public API, or authenticated API.
+Only the last state is a successful synchronization. An API response, editor
+toast, or closed modal is not enough. The read-back report must include its
+source and visibility, such as public DOM, public API, or authenticated API.
 
 Before execution, derive the expected HTTP link inventory from canonical
 content. After execution, extract links from the complete read-back body,
@@ -65,7 +64,7 @@ must leave Base unchanged. For platforms that cannot preserve HTML anchors,
 the renderer must retain absolute URLs as text and read-back must prove that
 the platform made them clickable when that capability is claimed.
 
-Publication reports also record renderer id/version, capability profile,
+Content-object reports also record renderer id/version, capability profile,
 expected/found/missing links, media expected/found counts, and recovery status
 after an uncertain request. Include renderer identity/version in idempotency
 keys so a renderer change cannot replay an old receipt.
