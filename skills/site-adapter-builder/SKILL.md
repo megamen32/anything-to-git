@@ -23,12 +23,20 @@ BrowserOS workflow, a Chrome MCP prompt, or a built-in-browser transcript.
 Use whichever browser capability is available while building and executing it.
 Do not place tool-specific invocation syntax in the universal adapter.
 
+For publication adapters, the site contract also includes deterministic
+rendering and proof. An accepted API request, closed modal, or success toast is
+not evidence that the public publication contains the requested content.
+
 ## Inputs
 
 - repository containing Anything to Git;
 - authenticated access to one concrete website object;
 - exact synchronization boundary, such as one grant application;
 - adapter target directory.
+
+For publication work, also record the canonical content/link inventory, the
+platform renderer and version, the platform capabilities, and the exact
+post-write read-back object plus link/media extraction rules.
 
 Authentication material remains in the browser/session mechanism. Never copy
 passwords, cookies, tokens, local storage, CSRF values, or secrets into Git,
@@ -91,6 +99,20 @@ Keep it compact enough for a human to review before implementation.
   formatting or transforms values, document and test that behavior.
 - A successful write is not proof of synchronization. Fetch again and compare
   the resulting canonical tree.
+- Never call a publication `published` from an API response alone. Use the
+  ladder `request_sent` -> `external_id_received` -> `save_confirmed` ->
+  `public_readback_verified`; the last state is required for success.
+- Keep a canonical inventory of every `http`/`https` destination. Verify each
+  destination in read-back, decoding provider redirects such as
+  `away.php?to=...`, rather than checking only visible link text.
+- Declare renderer loss explicitly. If a platform cannot preserve HTML
+  anchors, render absolute URLs as plain text and verify that the platform
+  turns them into clickable links. Never silently drop links or marks.
+- Publication adapters declare `rich_text`, `links`, `media`,
+  `update_existing`, `public_readback`, and `recovery_after_uncertain_write`.
+  `unknown` is a blocking state for real writes, not an optimistic default.
+- Include renderer identity/version in the operation or idempotency key. A
+  change from HTML to plain-link rendering is a different publication attempt.
 
 ## Workflow
 
@@ -233,6 +255,27 @@ Increment the integer adapter `version` whenever `adapter.json` or
 `converter.js` changes semantically. Never reinterpret existing captures or
 snapshots under changed conversion rules with the same version.
 
+For a publication adapter, put the proof contract under `site.transport`:
+
+```json
+{
+  "renderer": {"id": "vk-wall-plain-links", "version": 1, "format": "plain_text_auto_link"},
+  "capabilities": {
+    "rich_text": "none",
+    "links": "auto_link",
+    "media": "partial",
+    "update_existing": "unknown",
+    "public_readback": "browser_required",
+    "recovery_after_uncertain_write": "unknown"
+  },
+  "linkVerification": {"required": true, "paths": ["result.body", "result.html"]}
+}
+```
+
+The renderer must map canonical content to platform input deterministically. If
+it changes, bump its version and add a regression test for every affected mark,
+link, paragraph, or media rule.
+
 Generate a fetch specification and manually verify that another browser-capable
 agent could capture the site without knowing the original exploration history:
 
@@ -315,6 +358,16 @@ unmapped local edit -> hard failure
 apply desired state -> refetch -> desired tree
 ```
 
+Publication adapters additionally prove:
+
+```text
+canonical content -> renderer -> expected link inventory
+provider redirect -> decoded destination equals canonical URL
+missing link in read-back -> verification fails with missing_links
+renderer change -> operation key changes
+API success without read-back -> state is not published
+```
+
 When a real site cannot be modified safely, run the reverse side against a draft,
 test object, or dry-run and clearly mark what remains unverified.
 
@@ -337,6 +390,10 @@ Write `round-trip-report.json` containing:
 
 Do not claim support for pages, fields, deletion, rich text, attachments, or
 concurrent edits that were not actually tested.
+
+Publication reports also include renderer id/version, capability profile,
+expected/found/missing links, read-back source/visibility, media counts, and
+recovery status after uncertain requests.
 
 ## Completion criteria
 

@@ -40,6 +40,36 @@ Hard rules:
 - Do not ask the user about deterministic non-overlapping changes. Merge those
   automatically and report them.
 
+## Publication Proof
+
+When the synchronized object is an article, post, or other publication, use
+the adapter's renderer and capability profile as part of the plan review.
+Track the publication ladder explicitly:
+
+```text
+request_sent
+-> external_id_received
+-> save_confirmed
+-> public_readback_verified
+```
+
+Only the last state is a successful publication. An API response, editor toast,
+or closed modal is not enough. The read-back report must include its source and
+visibility, such as public DOM, public API, or authenticated API.
+
+Before execution, derive the expected HTTP link inventory from canonical
+content. After execution, extract links from the complete read-back body,
+decode provider redirects and repeated URL encoding, and compare destinations,
+not only visible labels. A missing destination is a verification failure and
+must leave Base unchanged. For platforms that cannot preserve HTML anchors,
+the renderer must retain absolute URLs as text and read-back must prove that
+the platform made them clickable when that capability is claimed.
+
+Publication reports also record renderer id/version, capability profile,
+expected/found/missing links, media expected/found counts, and recovery status
+after an uncertain request. Include renderer identity/version in idempotency
+keys so a renderer change cannot replay an old receipt.
+
 ## Required user-visible layer
 
 Before changing the website, provide a compact summary:
