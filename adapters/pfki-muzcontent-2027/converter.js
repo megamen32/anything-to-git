@@ -23,7 +23,7 @@ module.exports = {
       const numeric = ['DATE', 'DOUBLE', 'MONEY', 'SINGLESELECT'];
       const table = ['MULTISELECT', 'TEAM_MEMBER', 'CALENDAR_PLAN_ITEM', 'BUDGET_LINE',
         'OTHER_MEDIA_METRICS', 'MARKETING_SUPPORT_UNIT', 'CONTENT_DISTRIBUTION_CHANEL',
-        'CONTENT_TARGET_GROUP', 'CULTURAL_LEADER', 'SIGNATURE_PROCESS'];
+        'CONTENT_TARGET_GROUP', 'CULTURAL_LEADER', 'SIGNATURE_PROCESS', 'MEDIA_PERFORMANCE_METRICS'];
       const valid = text.includes(type) ? typeof value === 'string' ||
         (field.site_allow_multiple && Array.isArray(value) && value.every((item) => typeof item === 'string')) :
         numeric.includes(type) ? typeof value === 'number' && Number.isFinite(value) :

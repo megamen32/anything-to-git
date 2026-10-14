@@ -63,3 +63,14 @@ test('repeatable partner prose remains an exact ordered array', () => {
   observed.values['s24.fields.f10276'].value = ['Title must not become a list'];
   assert.throws(() => adapter.normalizeCapture(observed), /invalid TEXTAREA/);
 });
+
+test('earlier MEDIA_PERFORMANCE_METRICS rows retain their complete shape', () => {
+  const hooks = require('../adapters/pfki-muzcontent-2027/converter');
+  const field = { capture_key: 'historical.metrics', canonical: { file: 'metrics.json', pointer: '/metric' },
+    site_field_type: 'MEDIA_PERFORMANCE_METRICS' };
+  const value = [{ lineKey: 1, name: 'View count', comment: 'exact', documentIds: [123], countFinalSum: 500 }];
+  const envelope = hooks.normalizeFieldValue({ field, value });
+  assert.deepEqual(hooks.validateTree({ tree: { 'metrics.json': { metric: envelope } }, fields: [field] }), []);
+  assert.deepEqual(hooks.denormalizeFieldValue({ field, value: envelope }), value);
+  assert.equal(hooks.validateTree({ tree: { 'metrics.json': { metric: { value: 500 } } }, fields: [field] })[0].code, 'pfki_site_type');
+});

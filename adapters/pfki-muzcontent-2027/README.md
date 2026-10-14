@@ -1,10 +1,14 @@
 # Музконтент ПФКИ: ОК-27-1
 
-Adapter v2 covers the 81 observed leaf values in template `2996768`, across all
+Adapter v3 covers the 81 observed leaf values in template `2996768`, across all
 eight grant sections. Canonical files are `sections/<sectionId>.json`; each
 stable field ID maps to an exact `{ "value": ... }` envelope. This preserves
 observed null, strings, milliseconds/seconds, array ordering and complete nested
 table properties. It does not round money or reconstruct rows.
+
+The shared pure converter also recognizes the `MEDIA_PERFORMANCE_METRICS` array
+observed in earlier musical-content templates. Their field IDs still require a
+separately captured manifest; this does not reinterpret an old template as 2027.
 
 Create captures from authenticated API reads of every section. Capture keys are
 `s<sectionId>.fields.f<fieldId>`. Do not put authentication, full applicant DTOs,
