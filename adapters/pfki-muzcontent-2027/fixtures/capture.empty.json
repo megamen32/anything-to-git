@@ -1,0 +1,335 @@
+{
+  "adapter_id": "pfki-muzcontent-2027",
+  "adapter_version": 2,
+  "captured_at": "2026-10-14T15:00:00+03:00",
+  "revision": null,
+  "values": {
+    "s24.fields.f10276": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10285": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10286": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10287": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10288": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10290": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10291": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10293": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10294": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10295": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10296": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10297": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10298": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10299": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10300": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10303": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10307": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10312": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10317": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10321": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10322": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10324": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10325": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10329": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10330": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10333": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10338": {
+      "present": true,
+      "value": null
+    },
+    "s24.fields.f10340": {
+      "present": true,
+      "value": null
+    },
+    "s2.fields.f10277": {
+      "present": true,
+      "value": null
+    },
+    "s2.fields.f10301": {
+      "present": true,
+      "value": null
+    },
+    "s2.fields.f10306": {
+      "present": true,
+      "value": null
+    },
+    "s2.fields.f10310": {
+      "present": true,
+      "value": null
+    },
+    "s2.fields.f10315": {
+      "present": true,
+      "value": null
+    },
+    "s2.fields.f10318": {
+      "present": true,
+      "value": null
+    },
+    "s2.fields.f10326": {
+      "present": true,
+      "value": null
+    },
+    "s2.fields.f10331": {
+      "present": true,
+      "value": null
+    },
+    "s2.fields.f10334": {
+      "present": true,
+      "value": null
+    },
+    "s2.fields.f10339": {
+      "present": true,
+      "value": null
+    },
+    "s3.fields.f10272": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10274": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10281": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10304": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10308": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10313": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10316": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10319": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10327": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10332": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10336": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10337": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10342": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10343": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10344": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10346": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10347": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10348": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10349": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10350": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10352": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10353": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10354": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10355": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10356": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10357": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10359": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10360": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10362": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10363": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10364": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10366": {
+      "present": true,
+      "value": null
+    },
+    "s25.fields.f10367": {
+      "present": true,
+      "value": null
+    },
+    "s26.fields.f10279": {
+      "present": true,
+      "value": null
+    },
+    "s26.fields.f10280": {
+      "present": true,
+      "value": null
+    },
+    "s26.fields.f10302": {
+      "present": true,
+      "value": null
+    },
+    "s27.fields.f10271": {
+      "present": true,
+      "value": null
+    },
+    "s28.fields.f10275": {
+      "present": true,
+      "value": null
+    },
+    "s28.fields.f10282": {
+      "present": true,
+      "value": null
+    },
+    "s28.fields.f10305": {
+      "present": true,
+      "value": null
+    },
+    "s28.fields.f10309": {
+      "present": true,
+      "value": null
+    },
+    "s28.fields.f10314": {
+      "present": true,
+      "value": null
+    },
+    "s29.fields.f10273": {
+      "present": true,
+      "value": null
+    }
+  },
+  "metadata": {
+    "synthetic": true
+  }
+}

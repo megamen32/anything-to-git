@@ -1,0 +1,1875 @@
+{
+  "id": "pfki-muzcontent-2027",
+  "version": 2,
+  "site": {
+    "name": "Музконтент ПФКИ ОК-27-1",
+    "start_url": "https://xn--1-itbombd3ac.xn--h1adou.xn--p1ai/cp/content/request",
+    "scope": "One grant draft, 81 leaf values, eight sections. No signatures/status submission/account changes/authentication capture.",
+    "notes": "IDs scoped to template 2996768. Map old templates by full section/group/label/type. Captures use normalized tree hash; executor rereads each field."
+  },
+  "pages": [
+    {
+      "id": "s24",
+      "title": "1. О проекте",
+      "navigation": {
+        "recognition": "Contest 2996763, template 2996768; section 24",
+        "url_hint": "/cp/content/request/o_{requestId}/s_24"
+      },
+      "save": {
+        "instruction": "GET /api/modules/content/request/42/fields/{requestId}/24; reread each field immediately. Compare full value to expected_before_site. PUT /api/modules/content/request/42/update_field with fresh full leaf DTO and only value=write_value changed. Preserve target requestId/templateId/groupId. No status/signature writes. File IDs must be authorized/readable; verify attachments separately.",
+        "success_evidence": "Full section refetch matches exact desired values and attachment references."
+      },
+      "blocks": [
+        {
+          "id": "fields",
+          "title": "1. О проекте",
+          "fields": [
+            {
+              "id": "f10276",
+              "label": "Название проекта",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10276"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": 300,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10276; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10276"
+              }
+            },
+            {
+              "id": "f10285",
+              "label": "Описание проекта",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10285"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10285; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10285"
+              }
+            },
+            {
+              "id": "f10286",
+              "label": "Тематическое направление",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10286"
+              },
+              "site_field_type": "SINGLESELECT",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10286; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10286"
+              }
+            },
+            {
+              "id": "f10287",
+              "label": "Соответствие проекта традиционным духовно-нравственным ценностям",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10287"
+              },
+              "site_field_type": "MULTISELECT",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10287; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10287"
+              }
+            },
+            {
+              "id": "f10288",
+              "label": "Обоснование соответствия проекта традиционным российским духовно-нравственным ценностям",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10288"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10288; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10288"
+              }
+            },
+            {
+              "id": "f10290",
+              "label": "Выберите тип создаваемого музыкального контента",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10290"
+              },
+              "site_field_type": "MULTISELECT",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10290; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10290"
+              }
+            },
+            {
+              "id": "f10291",
+              "label": "Единицы создаваемого контента",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10291"
+              },
+              "site_field_type": "OTHER_MEDIA_METRICS",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10291; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10291"
+              }
+            },
+            {
+              "id": "f10293",
+              "label": "Презентация проекта",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10293"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10293; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10293"
+              }
+            },
+            {
+              "id": "f10294",
+              "label": "Аудиозапись демо-версии создаваемого контента",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10294"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10294; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10294"
+              }
+            },
+            {
+              "id": "f10295",
+              "label": "Авторские тексты создаваемых музыкальных произведений с верифицированным переводом на русский язык (в случае создания контента на национальном языке народов России и зарубежных стран)",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10295"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10295; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10295"
+              }
+            },
+            {
+              "id": "f10296",
+              "label": "Синопсис, концепция, сценарий/сценарный план создаваемого видеоконтента",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10296"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10296; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10296"
+              }
+            },
+            {
+              "id": "f10297",
+              "label": "Описание, эскизы персонажей/героев создаваемого видеоконтента",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10297"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10297; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10297"
+              }
+            },
+            {
+              "id": "f10298",
+              "label": "Референсы создаваемого аудио и/или видеоконтента",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10298"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10298; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10298"
+              }
+            },
+            {
+              "id": "f10299",
+              "label": "Маркетинговая стратегия (включающая маркетинговый план/план информационного продвижения/медиаплан размещения аудио или видео музыкального контента)",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10299"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10299; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10299"
+              }
+            },
+            {
+              "id": "f10300",
+              "label": "Единицы маркетингового сопровождения проекта",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10300"
+              },
+              "site_field_type": "MARKETING_SUPPORT_UNIT",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10300; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10300"
+              }
+            },
+            {
+              "id": "f10303",
+              "label": "Каналы распространения музыкального контента/площадки размещения контента в интернете и на стриминговых платформах",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10303"
+              },
+              "site_field_type": "CONTENT_DISTRIBUTION_CHANEL",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10303; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10303"
+              }
+            },
+            {
+              "id": "f10307",
+              "label": "Каналы распространения музыкального контента/площадки размещения контента на телевидении и радио",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10307"
+              },
+              "site_field_type": "CONTENT_DISTRIBUTION_CHANEL",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10307; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10307"
+              }
+            },
+            {
+              "id": "f10312",
+              "label": "Канал медиа",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10312"
+              },
+              "site_field_type": "CONTENT_DISTRIBUTION_CHANEL",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10312; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10312"
+              }
+            },
+            {
+              "id": "f10317",
+              "label": "Целевая аудитория проекта",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10317"
+              },
+              "site_field_type": "CONTENT_TARGET_GROUP",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10317; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10317"
+              }
+            },
+            {
+              "id": "f10321",
+              "label": "Количественные показатели прослушиваний/просмотров на цифровых площадках",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10321"
+              },
+              "site_field_type": "CONTENT_DISTRIBUTION_CHANEL",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10321; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10321"
+              }
+            },
+            {
+              "id": "f10322",
+              "label": "Количественные показатели прослушиваний/просмотров на телевидении и радио",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10322"
+              },
+              "site_field_type": "CONTENT_DISTRIBUTION_CHANEL",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10322; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10322"
+              }
+            },
+            {
+              "id": "f10324",
+              "label": "Социальная вовлеченность",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10324"
+              },
+              "site_field_type": "DOUBLE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10324; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10324"
+              }
+            },
+            {
+              "id": "f10325",
+              "label": "Другое",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10325"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10325; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10325"
+              }
+            },
+            {
+              "id": "f10329",
+              "site_allow_multiple": true,
+              "label": "Перечень партнеров",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10329"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10329; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10329"
+              }
+            },
+            {
+              "id": "f10330",
+              "label": "Документация",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10330"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10330; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10330"
+              }
+            },
+            {
+              "id": "f10333",
+              "label": "Подтверждение участия в проекте артистов-исполнителей, выдающихся деятелей культуры и лидеров общественного мнения",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10333"
+              },
+              "site_field_type": "CULTURAL_LEADER",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10333; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10333"
+              }
+            },
+            {
+              "id": "f10338",
+              "label": "Авторские права",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10338"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10338; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10338"
+              }
+            },
+            {
+              "id": "f10340",
+              "label": "Документация по авторским правам",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/24.json",
+                "pointer": "/10340"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10340; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s24.fields.f10340"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "2. Руководитель проекта",
+      "navigation": {
+        "recognition": "Contest 2996763, template 2996768; section 2",
+        "url_hint": "/cp/content/request/o_{requestId}/s_2"
+      },
+      "save": {
+        "instruction": "GET /api/modules/content/request/42/fields/{requestId}/2; reread each field immediately. Compare full value to expected_before_site. PUT /api/modules/content/request/42/update_field with fresh full leaf DTO and only value=write_value changed. Preserve target requestId/templateId/groupId. No status/signature writes. File IDs must be authorized/readable; verify attachments separately.",
+        "success_evidence": "Full section refetch matches exact desired values and attachment references."
+      },
+      "blocks": [
+        {
+          "id": "fields",
+          "title": "2. Руководитель проекта",
+          "fields": [
+            {
+              "id": "f10277",
+              "label": "Фамилия",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/2.json",
+                "pointer": "/10277"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10277; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s2.fields.f10277"
+              }
+            },
+            {
+              "id": "f10301",
+              "label": "Имя",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/2.json",
+                "pointer": "/10301"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10301; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s2.fields.f10301"
+              }
+            },
+            {
+              "id": "f10306",
+              "label": "Отчество",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/2.json",
+                "pointer": "/10306"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10306; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s2.fields.f10306"
+              }
+            },
+            {
+              "id": "f10310",
+              "label": "Дата рождения",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/2.json",
+                "pointer": "/10310"
+              },
+              "site_field_type": "DATE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10310; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s2.fields.f10310"
+              }
+            },
+            {
+              "id": "f10315",
+              "label": "Должность",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/2.json",
+                "pointer": "/10315"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10315; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s2.fields.f10315"
+              }
+            },
+            {
+              "id": "f10318",
+              "label": "Телефон",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/2.json",
+                "pointer": "/10318"
+              },
+              "site_field_type": "PHONE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10318; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s2.fields.f10318"
+              }
+            },
+            {
+              "id": "f10326",
+              "label": "E-mail",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/2.json",
+                "pointer": "/10326"
+              },
+              "site_field_type": "EMAIL",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10326; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s2.fields.f10326"
+              }
+            },
+            {
+              "id": "f10331",
+              "label": "Образование",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/2.json",
+                "pointer": "/10331"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10331; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s2.fields.f10331"
+              }
+            },
+            {
+              "id": "f10334",
+              "label": "Опыт работы",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/2.json",
+                "pointer": "/10334"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10334; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s2.fields.f10334"
+              }
+            },
+            {
+              "id": "f10339",
+              "label": "Дополнительные сведения",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/2.json",
+                "pointer": "/10339"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10339; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s2.fields.f10339"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "3. Команда проекта",
+      "navigation": {
+        "recognition": "Contest 2996763, template 2996768; section 3",
+        "url_hint": "/cp/content/request/o_{requestId}/s_3"
+      },
+      "save": {
+        "instruction": "GET /api/modules/content/request/42/fields/{requestId}/3; reread each field immediately. Compare full value to expected_before_site. PUT /api/modules/content/request/42/update_field with fresh full leaf DTO and only value=write_value changed. Preserve target requestId/templateId/groupId. No status/signature writes. File IDs must be authorized/readable; verify attachments separately.",
+        "success_evidence": "Full section refetch matches exact desired values and attachment references."
+      },
+      "blocks": [
+        {
+          "id": "fields",
+          "title": "3. Команда проекта",
+          "fields": [
+            {
+              "id": "f10272",
+              "label": "Команда проекта",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/3.json",
+                "pointer": "/10272"
+              },
+              "site_field_type": "TEAM_MEMBER",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10272; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s3.fields.f10272"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s25",
+      "title": "4. Заявитель",
+      "navigation": {
+        "recognition": "Contest 2996763, template 2996768; section 25",
+        "url_hint": "/cp/content/request/o_{requestId}/s_25"
+      },
+      "save": {
+        "instruction": "GET /api/modules/content/request/42/fields/{requestId}/25; reread each field immediately. Compare full value to expected_before_site. PUT /api/modules/content/request/42/update_field with fresh full leaf DTO and only value=write_value changed. Preserve target requestId/templateId/groupId. No status/signature writes. File IDs must be authorized/readable; verify attachments separately.",
+        "success_evidence": "Full section refetch matches exact desired values and attachment references."
+      },
+      "blocks": [
+        {
+          "id": "fields",
+          "title": "4. Заявитель",
+          "fields": [
+            {
+              "id": "f10274",
+              "label": "ОГРН/ОГРНИП",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10274"
+              },
+              "site_field_type": "INPUT",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10274; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10274"
+              }
+            },
+            {
+              "id": "f10281",
+              "label": "Сведения из ЕГРЮЛ/ЕГРИП (выписка из ЕГРЮЛ)",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10281"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10281; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10281"
+              }
+            },
+            {
+              "id": "f10304",
+              "label": "ИНН",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10304"
+              },
+              "site_field_type": "INPUT",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10304; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10304"
+              }
+            },
+            {
+              "id": "f10308",
+              "label": "КПП",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10308"
+              },
+              "site_field_type": "INPUT",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10308; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10308"
+              }
+            },
+            {
+              "id": "f10313",
+              "label": "Дата регистрации",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10313"
+              },
+              "site_field_type": "DATE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10313; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10313"
+              }
+            },
+            {
+              "id": "f10316",
+              "label": "Полное наименование организации либо фамилия, имя, отчество (при наличии) индивидуального предпринимателя",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10316"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10316; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10316"
+              }
+            },
+            {
+              "id": "f10319",
+              "label": "Сокращенное (при наличии) наименование",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10319"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10319; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10319"
+              }
+            },
+            {
+              "id": "f10327",
+              "label": "Регион",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10327"
+              },
+              "site_field_type": "SINGLESELECT",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10327; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10327"
+              }
+            },
+            {
+              "id": "f10332",
+              "label": "Адрес (место нахождения) организации либо место жительства (пребывания) индивидуального предпринимателя",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10332"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10332; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10332"
+              }
+            },
+            {
+              "id": "f10336",
+              "label": "Регион",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10336"
+              },
+              "site_field_type": "SINGLESELECT",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10336; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10336"
+              }
+            },
+            {
+              "id": "f10337",
+              "label": "Адрес",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10337"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10337; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10337"
+              }
+            },
+            {
+              "id": "f10342",
+              "label": "Регион",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10342"
+              },
+              "site_field_type": "SINGLESELECT",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10342; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10342"
+              }
+            },
+            {
+              "id": "f10343",
+              "label": "Адрес",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10343"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10343; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10343"
+              }
+            },
+            {
+              "id": "f10344",
+              "label": "Электронная почта",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10344"
+              },
+              "site_field_type": "EMAIL",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10344; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10344"
+              }
+            },
+            {
+              "id": "f10346",
+              "label": "ФИО",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10346"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10346; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10346"
+              }
+            },
+            {
+              "id": "f10347",
+              "label": "Дата рождения",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10347"
+              },
+              "site_field_type": "DATE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10347; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10347"
+              }
+            },
+            {
+              "id": "f10348",
+              "label": "Должность",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10348"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10348; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10348"
+              }
+            },
+            {
+              "id": "f10349",
+              "label": "Телефон",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10349"
+              },
+              "site_field_type": "PHONE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10349; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10349"
+              }
+            },
+            {
+              "id": "f10350",
+              "label": "E-mail",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10350"
+              },
+              "site_field_type": "EMAIL",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10350; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10350"
+              }
+            },
+            {
+              "id": "f10352",
+              "label": "ФИО (лица или руководителя организации\\ИП, в случае видения бухгалтерского учета привлеченной организацией)",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10352"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10352; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10352"
+              }
+            },
+            {
+              "id": "f10353",
+              "label": "Должность",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10353"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10353; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10353"
+              }
+            },
+            {
+              "id": "f10354",
+              "label": "Телефон",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10354"
+              },
+              "site_field_type": "PHONE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10354; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10354"
+              }
+            },
+            {
+              "id": "f10355",
+              "label": "E-mail",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10355"
+              },
+              "site_field_type": "EMAIL",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10355; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10355"
+              }
+            },
+            {
+              "id": "f10356",
+              "label": "Укажите какую систему налогообложения вы применяете?",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10356"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10356; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10356"
+              }
+            },
+            {
+              "id": "f10357",
+              "label": "Документ для подтверждения применения упрощенной системы налогообложения",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10357"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10357; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10357"
+              }
+            },
+            {
+              "id": "f10359",
+              "label": "Организационно-правовая форма",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10359"
+              },
+              "site_field_type": "SINGLESELECT",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10359; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10359"
+              }
+            },
+            {
+              "id": "f10360",
+              "label": "Устав организации (юрлица) / Лист записи ЕГРИП или свидетельство о регистрации ИП (для ИП)",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10360"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10360; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10360"
+              }
+            },
+            {
+              "id": "f10362",
+              "label": "Веб-сайт",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10362"
+              },
+              "site_field_type": "LINK",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10362; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10362"
+              }
+            },
+            {
+              "id": "f10363",
+              "label": "Группы в социальных сетях",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10363"
+              },
+              "site_field_type": "LINK",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10363; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10363"
+              }
+            },
+            {
+              "id": "f10364",
+              "label": "Опыт реализации аналогичных проектов и создания музыкального аудиовизуального контента за последние 3 года",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10364"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10364; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10364"
+              }
+            },
+            {
+              "id": "f10366",
+              "label": "Доходы сумма за предыдущий календарный год",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10366"
+              },
+              "site_field_type": "MONEY",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10366; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10366"
+              }
+            },
+            {
+              "id": "f10367",
+              "label": "Расходы сумма за предыдущий календарный год",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/25.json",
+                "pointer": "/10367"
+              },
+              "site_field_type": "MONEY",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10367; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s25.fields.f10367"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s26",
+      "title": "5. Календарный план",
+      "navigation": {
+        "recognition": "Contest 2996763, template 2996768; section 26",
+        "url_hint": "/cp/content/request/o_{requestId}/s_26"
+      },
+      "save": {
+        "instruction": "GET /api/modules/content/request/42/fields/{requestId}/26; reread each field immediately. Compare full value to expected_before_site. PUT /api/modules/content/request/42/update_field with fresh full leaf DTO and only value=write_value changed. Preserve target requestId/templateId/groupId. No status/signature writes. File IDs must be authorized/readable; verify attachments separately.",
+        "success_evidence": "Full section refetch matches exact desired values and attachment references."
+      },
+      "blocks": [
+        {
+          "id": "fields",
+          "title": "5. Календарный план",
+          "fields": [
+            {
+              "id": "f10279",
+              "label": "Дата начала",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/26.json",
+                "pointer": "/10279"
+              },
+              "site_field_type": "DATE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10279; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s26.fields.f10279"
+              }
+            },
+            {
+              "id": "f10280",
+              "label": "Дата окончания",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/26.json",
+                "pointer": "/10280"
+              },
+              "site_field_type": "DATE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10280; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s26.fields.f10280"
+              }
+            },
+            {
+              "id": "f10302",
+              "label": "Календарный план",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/26.json",
+                "pointer": "/10302"
+              },
+              "site_field_type": "CALENDAR_PLAN_ITEM",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10302; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s26.fields.f10302"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s27",
+      "title": "6. Бюджет",
+      "navigation": {
+        "recognition": "Contest 2996763, template 2996768; section 27",
+        "url_hint": "/cp/content/request/o_{requestId}/s_27"
+      },
+      "save": {
+        "instruction": "GET /api/modules/content/request/42/fields/{requestId}/27; reread each field immediately. Compare full value to expected_before_site. PUT /api/modules/content/request/42/update_field with fresh full leaf DTO and only value=write_value changed. Preserve target requestId/templateId/groupId. No status/signature writes. File IDs must be authorized/readable; verify attachments separately.",
+        "success_evidence": "Full section refetch matches exact desired values and attachment references."
+      },
+      "blocks": [
+        {
+          "id": "fields",
+          "title": "6. Бюджет",
+          "fields": [
+            {
+              "id": "f10271",
+              "label": "Бюджет",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/27.json",
+                "pointer": "/10271"
+              },
+              "site_field_type": "BUDGET_LINE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10271; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s27.fields.f10271"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s28",
+      "title": "7. Подача заявки",
+      "navigation": {
+        "recognition": "Contest 2996763, template 2996768; section 28",
+        "url_hint": "/cp/content/request/o_{requestId}/s_28"
+      },
+      "save": {
+        "instruction": "GET /api/modules/content/request/42/fields/{requestId}/28; reread each field immediately. Compare full value to expected_before_site. PUT /api/modules/content/request/42/update_field with fresh full leaf DTO and only value=write_value changed. Preserve target requestId/templateId/groupId. No status/signature writes. File IDs must be authorized/readable; verify attachments separately.",
+        "success_evidence": "Full section refetch matches exact desired values and attachment references."
+      },
+      "blocks": [
+        {
+          "id": "fields",
+          "title": "7. Подача заявки",
+          "fields": [
+            {
+              "id": "f10275",
+              "label": "Фамилия подписанта",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/28.json",
+                "pointer": "/10275"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10275; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s28.fields.f10275"
+              }
+            },
+            {
+              "id": "f10282",
+              "label": "Имя подписанта",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/28.json",
+                "pointer": "/10282"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10282; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s28.fields.f10282"
+              }
+            },
+            {
+              "id": "f10305",
+              "label": "Отчество подписанта",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/28.json",
+                "pointer": "/10305"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10305; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s28.fields.f10305"
+              }
+            },
+            {
+              "id": "f10309",
+              "label": "Должность подписанта",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/28.json",
+                "pointer": "/10309"
+              },
+              "site_field_type": "TEXTAREA",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10309; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s28.fields.f10309"
+              }
+            },
+            {
+              "id": "f10314",
+              "label": "Доверенность  (в случае если подписант ДППЗ имеет право подписывать документ по доверенности)",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/28.json",
+                "pointer": "/10314"
+              },
+              "site_field_type": "FILE",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10314; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": true,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s28.fields.f10314"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s29",
+      "title": "8. Подписание заявки",
+      "navigation": {
+        "recognition": "Contest 2996763, template 2996768; section 29",
+        "url_hint": "/cp/content/request/o_{requestId}/s_29"
+      },
+      "save": {
+        "instruction": "GET /api/modules/content/request/42/fields/{requestId}/29; reread each field immediately. Compare full value to expected_before_site. PUT /api/modules/content/request/42/update_field with fresh full leaf DTO and only value=write_value changed. Preserve target requestId/templateId/groupId. No status/signature writes. File IDs must be authorized/readable; verify attachments separately.",
+        "success_evidence": "Full section refetch matches exact desired values and attachment references."
+      },
+      "blocks": [
+        {
+          "id": "fields",
+          "title": "8. Подписание заявки",
+          "fields": [
+            {
+              "id": "f10273",
+              "label": "Подписание заявки",
+              "type": "object",
+              "required": true,
+              "canonical": {
+                "file": "sections/29.json",
+                "pointer": "/10273"
+              },
+              "site_field_type": "SIGNATURE_PROCESS",
+              "site_max_length": null,
+              "read": {
+                "instruction": "Read complete API leaf fieldId=10273; verify requestId/templateId."
+              },
+              "write": {
+                "enabled": false,
+                "control": "authenticated-api",
+                "instruction": "Apply page API contract with fresh full leaf DTO.",
+                "save_group": "s29.fields.f10273"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "merge_policies": {}
+}
